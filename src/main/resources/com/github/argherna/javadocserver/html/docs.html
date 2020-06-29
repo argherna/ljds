@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <title>Available Local Javadoc</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Getting Started</h1>
+      <p>
+        Before using this tool, you will need to set preferences. You will need an XML file that looks similar to this:
+        <pre><code>
+&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd"&gt;
+&lt;preferences EXTERNAL_XML_VERSION="1.0"&gt;
+    &lt;root type="user"&gt;
+    &lt;map/&gt;
+    &lt;node name="JavadocServer"&gt;
+        &lt;map/&gt;
+        &lt;node name="jdk-docs"&gt;
+        &lt;map&gt;
+            &lt;entry key="8" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jdk-8u161-docs-all.zip"/&gt;
+            &lt;entry key="9" value="/Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Home/jdk-9.0.4_doc-all.zip"/&gt;
+            &lt;entry key="10" value="/Library/Java/JavaVirtualMachines/jdk-10.jdk/Contents/Home/jdk-10_doc-all.zip"/&gt;
+        &lt;/map&gt;
+        &lt;/node&gt;
+        &lt;node name="m2-repos"&gt;
+        &lt;map&gt;
+            &lt;entry key="default" value="/Users/username/.m2/repository"/&gt;
+        &lt;/map&gt;
+        &lt;/node&gt;
+    &lt;/node&gt;
+    &lt;/root&gt;
+&lt;/preferences&gt;
+        </code></pre>
+      </p>
+      <p>
+        There can be as many <code>jdk-docs</code> and <code>m2-repos</code> entries as you want. The key names are arbitrary for <code>jdk-docs</code> but they appear in the path name of the URLs for the documents. The <code>m2-repos</code> entries require at least 1 key named <code>default</code>. This will make the paths of the URLs not include this value.
+      </p>
+      <p>
+        You can copy and edit the XML above in its own file. When it's ready, you can run <a href="https://github.com/argherna/Dotfiles/blob/master/Scripts/ImportPrefsTool.java">ImportPrefsTool.java</a> to import the XML into your Java user preferences.
+      </p>
+      
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
+</html>
