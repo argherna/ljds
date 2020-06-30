@@ -39,7 +39,7 @@ class IndexHandler extends JavadocHandler {
     public void handle(HttpExchange exchange) throws IOException {
         var content = new byte[0];
         var status = HTTP_OK;
-        var javadocServer = Preferences.userNodeForPackage(JavadocServer.class);
+        var javadocServer = Preferences.userNodeForPackage(ServerMain.class);
         try {
             if (javadocServer.childrenNames().length == 0) {
                 content = gettingStarted;

@@ -23,7 +23,7 @@ class M2Handler extends JavadocHandler {
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        var m2Repos = Preferences.userNodeForPackage(JavadocServer.class).node("m2-repos");
+        var m2Repos = Preferences.userNodeForPackage(ServerMain.class).node("m2-repos");
         var m2RepoPath = m2Repos.get("default", "");
         var pathElements = Arrays.stream(exchange.getRequestURI().getPath().split(SYSPROP_FILE_SEP))
                 .filter(pe -> pe != null && !pe.isEmpty()).collect(Collectors.toList());

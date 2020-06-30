@@ -20,7 +20,7 @@ class ServerHeaderFilter extends Filter {
     @Override
     public void doFilter(HttpExchange exchange, Filter.Chain chain) throws IOException {
         Headers responseHeaders = exchange.getResponseHeaders();
-        responseHeaders.put("Server", List.of(JavadocServer.class.getSimpleName()));
+        responseHeaders.put("Server", List.of(ServerMain.class.getSimpleName()));
         chain.doFilter(exchange);
     }
 }

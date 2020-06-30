@@ -22,7 +22,7 @@ class JdkDocsHandler extends JavadocHandler {
         var pathElements = Arrays.asList(exchange.getRequestURI().getPath().split(SYSPROP_FILE_SEP))
                 .stream().filter(pe -> pe != null && !pe.isEmpty()).collect(Collectors.toList());
         var contentType = contentTypeHtml;
-        var javadocArchiveName = Preferences.userNodeForPackage(JavadocServer.class)
+        var javadocArchiveName = Preferences.userNodeForPackage(ServerMain.class)
                 .node("jdk-docs").get(pathElements.get(1), "");
         if (javadocArchiveName.isEmpty()) {
             doSend(exchange, contentType, notFound, HTTP_NOT_FOUND);

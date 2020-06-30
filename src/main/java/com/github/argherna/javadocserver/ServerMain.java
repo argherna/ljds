@@ -20,11 +20,11 @@ import com.sun.net.httpserver.HttpServer;
  * the first time, navigate to {@link http://localhost:8084/} for getting started instructions.
  * 
  */
-public class JavadocServer implements Runnable {
+public class ServerMain implements Runnable {
 
     private static final int DEFAULT_HTTP_PORT = 8084;
 
-    static final System.Logger LOGGER = System.getLogger(JavadocServer.class.getName());
+    static final System.Logger LOGGER = System.getLogger(ServerMain.class.getName());
 
     private final HttpServer httpServer;
 
@@ -58,7 +58,7 @@ public class JavadocServer implements Runnable {
         }
 
         try {
-            var javadocServer = new JavadocServer(port);
+            var javadocServer = new ServerMain(port);
             javadocServer.run();
         } catch (Exception e) {
             System.err.printf("%s", e.getMessage());
@@ -73,7 +73,7 @@ public class JavadocServer implements Runnable {
     }
 
     private static void showUsage() {
-        System.err.printf("Usage: %s [port]%n", JavadocServer.class.getName());
+        System.err.printf("Usage: %s [port]%n", ServerMain.class.getName());
         System.err.println();
         System.err
                 .println("Serves content from javadoc jars stored locally in zip" + "/jar files.");
@@ -91,7 +91,7 @@ public class JavadocServer implements Runnable {
         System.err.println(" -h    show this help and exit");
     }
 
-    public JavadocServer(int port) {
+    public ServerMain(int port) {
         try {
             this.port = port;
             httpServer = HttpServer.create(new InetSocketAddress(port), 0);
